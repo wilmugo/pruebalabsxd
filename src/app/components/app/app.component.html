@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="display-4 text-center mt-4 text-white">
+    Lista desplegable de personas
+  </h1>
+  <div class="accordion shadow-lg" id="accordionExample">
+    <div class="card" *ngFor="let persona of personaArray">
+      <div class="card-header" id="heading">
+        <h2 class="mb-0">
+          <button
+            class="btn btn-link"
+            type="button"
+            data-toggle="collapse"
+            [attr.data-target]="'#' + persona.id"
+            aria-expanded="true"
+            [attr.aria-controls]="persona.id"
+          >
+            {{ persona.nombre }} {{ persona.apellido }}
+          </button>
+        </h2>
+      </div>
+
+      <div
+        [attr.id]="persona.id"
+        class="collapse"
+        aria-labelledby="heading"
+        data-parent="#accordionExample"
+      >
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Edad: {{ persona.edad }}</li>
+            <li class="list-group-item">Biogradia: {{ persona.biografia }}</li>
+            <li
+              class="list-group-item"
+              *ngFor="let tlf of persona.telefonos; let indice = index"
+            >
+              Telefono {{ indice + 1 }}: {{ tlf }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
