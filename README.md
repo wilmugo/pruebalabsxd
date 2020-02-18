@@ -1,3 +1,5 @@
+#Correr en local con ng serve(debe instalar angular-cli)
+
 # Listadesplegable
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
